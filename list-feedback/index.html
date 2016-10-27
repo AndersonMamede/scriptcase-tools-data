@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Feedback list - ScriptCase Tools</title>
+		<link href="../assets/layout.css" rel="stylesheet" media="all">
+	</head>
+	<body>
+		<div id="status-message" class="status-message">Loading...</div>
+		<main>
+			<h1 class="page-title">Feedback list - ScriptCase Tools</h1>
+			<ul class="content-list"></ul>
+		</main>
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+		<script src="../assets/common.js"></script>
+		<script src="script.js"></script>
+		<script>
+			if(typeof window.scriptReady == "undefined" || !window.scriptReady){
+				document.body.className = "error";
+				if(window["status-message"]){
+					window["status-message"].innerHTML = [
+						"Unfortunately, your browser is too old to work with this amazing page.",
+						"Please upgrade your browser."
+					].join("<br>");
+				}else{
+					document.body.innerHTML = "Error";
+				}
+			}
+		</script>
+	</body>
+</html>

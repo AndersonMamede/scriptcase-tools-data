@@ -1,0 +1,146 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+body{
+	margin: 0 15px;
+}
+
+body, pre, button{
+	font: normal 12px Verdana;
+	line-height: 15px;
+	color: #424242;
+}
+
+ul, li{
+	list-style: none;
+}
+
+pre{
+	white-space: pre-line;
+}
+
+label:not([id=""]){
+	cursor: pointer;
+}
+
+button{
+	padding: 2px 7px;
+}
+
+input[type=text],
+input[type=email],
+textarea,
+select{
+	padding: 4px 6px;
+	border: 1px solid #AAA;
+	border-radius: 2px;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited{
+	vertical-align: top;
+	text-decoration: none;
+	color: #0070CA;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.display-none{
+	display: none;
+}
+
+.page-title{
+	margin-top: 15px;
+	font-size: 20px;
+	text-align: center;
+	color: #0064B3;
+}
+
+.page-note{
+	margin: 15px 0;
+	font-size: 16px;
+	color: #CC3100;
+}
+
+.status-message{
+	margin: 100px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: #727272;
+}
+
+body.error .status-message{
+	color: red;
+}
+
+.empty-data{
+	margin-top: 40px!important;
+	text-align: center;
+}
+
+.content-list{
+	max-width: 700px;
+	margin: 10px auto 30px auto;
+}
+
+.content-list-item{
+	transition: 0.3s;
+	position: relative;
+	margin: 15px 0;
+	padding: 15px;
+	border-bottom: 2px solid transparent;
+	border-radius: 2px;
+	background: #F4F4F4;
+}
+
+.content-list-item:hover{
+	border-color: #C0C0C0;
+	color: #000000;
+}
+
+.content-list-item-header{
+	margin-bottom: 7px;
+}
+
+.content-list-item-counter{
+	transition: 0.3s;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	padding: 2px 4px 1px 4px;
+	min-width: 20px;
+	font-size: 10px;
+	text-align: center;
+	border-bottom: 2px solid #137DD2;
+	border-radius: 2px;
+	background: #2196F3;
+	color: #FFFFFF;
+	opacity: 0.6;
+}
+
+.content-list-item:hover .content-list-item-counter{
+	opacity: 1;
+}
+
+.content-list-item-extra{
+	transition: 0.3s;
+	opacity: 0.5;
+}
+
+.content-list-item-extra:hover{
+	opacity: 1;
+}
+
+.content-list-item label{
+	font-weight: bold;
+	cursor: auto;
+}

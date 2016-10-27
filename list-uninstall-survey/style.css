@@ -1,0 +1,8 @@
+.installId{
+	color: #007DE0;
+}
+
+.installId:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
