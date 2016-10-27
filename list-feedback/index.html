@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SCT - Feedback</title>
+		<link href="../assets/layout.css" rel="stylesheet" media="all">
+		<link href="style.css" rel="stylesheet" media="all">
+	</head>
+	<body>
+		<div id="message">Loading...</div>
+		<main><ul id="feedback-list"></ul></main>
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+		<script src="script.js"></script>
+		<script>
+			setTimeout(function(){
+				if(!window.viewReady){
+					document.body.className = "error";
+					document.getElementById("message").innerHTML = [
+						"Unfortunately, your browser is too old to work with this amazing page.",
+						"Please upgrade your browser."
+					].join("<br>");
+				}
+			}, 3000);
+		</script>
+	</body>
+</html>
