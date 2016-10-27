@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+body, pre{
+	font: normal 12px Verdana;
+	line-height: 15px;
+	color: #424242;
+}
+
+ul, li{
+	list-style: none;
+}
+
+pre{
+	white-space: pre-line;
+}
+
+.display-none{
+	display: none;
+}
+
+#message{
+	margin: 100px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: #727272;
+}
+
+body.error #message{
+	color: red;
+}
+
+.empty-data{
+	margin: 20px 0;
+	text-align: center;
+}
+
+#feedback-list{
+	max-width: 700px;
+	margin: 30px auto;
+}
+
+.feedback{
+	transition: 0.3s;
+	position: relative;
+	margin: 15px 0;
+	padding: 15px;
+	border-bottom: 2px solid transparent;
+	border-radius: 2px;
+	background: #F4F4F4;
+}
+
+.feedback:hover{
+	border-color: #C0C0C0;
+	color: #000000;
+	cursor: pointer;
+}
+
+.feedback-header{
+	margin-bottom: 7px;
+}
+
+.feedback-counter{
+	transition: 0.3s;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	padding: 2px 4px 1px 4px;
+	min-width: 20px;
+	font-size: 10px;
+	text-align: center;
+	border-bottom: 2px solid #137DD2;
+	border-radius: 2px;
+	background: #2196F3;
+	color: #FFFFFF;
+	opacity: 0.6;
+}
+
+.feedback:hover .feedback-counter{
+	opacity: 1;
+}
+
+.feedback-extra{
+	transition: 0.3s;
+	opacity: 0.5;
+}
+
+.feedback-extra:hover{
+	opacity: 1;
+}
