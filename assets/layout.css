@@ -58,8 +58,9 @@ a:hover{
 }
 
 .page-title{
-	margin-top: 15px;
+	margin: 25px 0 25px 0;
 	font-size: 20px;
+	line-height: 23px;
 	text-align: center;
 	color: #0064B3;
 }
@@ -87,12 +88,22 @@ body.error .status-message{
 	text-align: center;
 }
 
+.content-summary,
 .content-list{
 	max-width: 700px;
+	margin: 0 auto 0 auto;
+}
+
+.content-list{
 	margin: 10px auto 30px auto;
 }
 
 .content-list-item{
+	display: inline-block;
+	width: 100%;
+}
+
+.content-list-item-wrapper{
 	transition: 0.3s;
 	position: relative;
 	margin: 15px 0;
@@ -102,8 +113,16 @@ body.error .status-message{
 	background: #F4F4F4;
 }
 
-.content-list-item:hover{
-	border-color: #C0C0C0;
+.content-list-item[data-done="true"] .content-list-item-wrapper{
+	border-left: 3px solid #84C187;
+}
+
+.content-list-item[data-rejected="true"] .content-list-item-wrapper{
+	border-left: 3px solid #FF796F;
+}
+
+.content-list-item-wrapper:hover{
+	border-bottom-color: #B7B7B7;
 	color: #000000;
 }
 
@@ -111,11 +130,16 @@ body.error .status-message{
 	margin-bottom: 7px;
 }
 
+.content-list-item-header *{
+	vertical-align: text-bottom;
+}
+
 .content-list-item-counter{
 	transition: 0.3s;
 	position: absolute;
 	right: 7px;
 	top: 7px;
+	display: inline-block;
 	padding: 2px 4px 1px 4px;
 	min-width: 20px;
 	font-size: 10px;
@@ -123,8 +147,14 @@ body.error .status-message{
 	border-bottom: 2px solid #137DD2;
 	border-radius: 2px;
 	background: #2196F3;
-	color: #FFFFFF;
 	opacity: 0.6;
+}
+
+.content-list-item-counter,
+.content-list-item-counter:hover,
+.content-list-item-counter:focus,
+.content-list-item-counter:visited{
+	color: #FFFFFF;
 }
 
 .content-list-item:hover .content-list-item-counter{
@@ -143,4 +173,25 @@ body.error .status-message{
 .content-list-item label{
 	font-weight: bold;
 	cursor: auto;
+}
+
+.content-list-item-answer:empty{
+	display: none;
+}
+
+.content-list-item-answer{
+	margin-top: 13px;
+	padding: 5px 10px;
+	overflow: hidden;
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	background: #FFF498;
+	color: #000000;
+}
+
+.content-list-item-answer::before{
+	content: "Answer:";
+	display: block;
+	font-style: italic;
+	font-weight: bold;
 }

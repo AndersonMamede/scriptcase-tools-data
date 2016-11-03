@@ -1,0 +1,12 @@
+.content-summary .done{
+	display: inline-block;
+	padding-left: 5px;
+	margin-right: 25px;
+	border-left: 3px solid #84C187;
+}
+
+.content-summary .rejected{
+	display: inline-block;
+	padding-left: 5px;
+	border-left: 3px solid #FF796F;
+}

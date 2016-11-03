@@ -1,23 +1,29 @@
-<li class="content-list-item" data-installId="{installId}">
-	<div class="content-list-item-counter">{counter}</div>
-	<div class="content-list-item-header">
-		<span class="content-list-item-date">{prettyDate}</span>
-		<span class="content-list-item-extra"> - {language} - {browserName}</span>
-	</div>
-	<div class="content-list-item-installId">
-		<label>Install ID:</label>
-		<span class="installId">{installId}</span>
-	</div>
-	<div class="content-list-item-why">
-		<label>Why?</label>
-		{why}
-	</div>
-	<div class="content-list-item-feedback">
-		<label>Feedback:</label>
-		{feedback}
-	</div>
-	<div class="content-list-item-email">
-		<label>E-mail:</label>
-		{email}
+<li class="content-list-item" id="item-{counter}" data-installId="{installId}">
+	<div class="content-list-item-wrapper">
+		<a class="content-list-item-counter" href="#">{counter}</a>
+		<div class="content-list-item-header">
+			<span class="content-list-item-date">{prettyDate}</span>
+			<span class="content-list-item-extra">
+				<span>- {language}</span>
+				<span title="{userAgent}">- {browserName}</span>
+				<span title="{userAgent}">- {operatingSystemName}</span>
+			 </span>
+		</div>
+		<div class="content-list-item-installId">
+			<label>Install ID:</label>
+			<span class="installId">{installId}</span>
+		</div>
+		<div class="content-list-item-why">
+			<label>Why?</label>
+			<span>{why}</span>
+		</div>
+		<div class="content-list-item-feedback">
+			<label>Feedback:</label>
+			<span>{feedback}</span>
+		</div>
+		<div class="content-list-item-email">
+			<label>E-mail:</label>
+			<span>{email}</span>
+		</div>
 	</div>
 </li>

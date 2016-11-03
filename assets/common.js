@@ -18,8 +18,42 @@ window.Helper = new (function(){
 		return rs;
 	};
 	
+	_this.focusListItem = function($element){
+		if(!$element || !$element.length){
+			return;
+		}
+		
+		// temporarily change the element id, otherwise the hash change would
+		// cause the browser to jump to the element's position
+		var itemId = $element.prop("id");
+		$element.prop("id", itemId + "-temp");
+		window.location.href = "#" + itemId;
+		$element.prop("id", itemId);
+		
+		$("body").animate({
+			scrollTop: $element.offset().top
+		}, 500);
+	};
+	
 	_this.ucFirst = function(text){
 		return text.substr(0, 1).toUpperCase() + text.substr(1);
+	},
+	
+	_this.getOperatingSystemName = function(userAgent){
+		var operatingSystemName = "Unknown O.S.";
+		
+		if(userAgent.indexOf("Windows NT 10.0") != -1) operatingSystemName = "Windows 10 / Windows Server 2016";
+		if(userAgent.indexOf("Windows NT 6.3") != -1)  operatingSystemName = "Windows 8.1 / Windows Server 2012 R2";
+		if(userAgent.indexOf("Windows NT 6.2") != -1)  operatingSystemName = "Windows 8";
+		if(userAgent.indexOf("Windows NT 6.1") != -1)  operatingSystemName = "Windows 7";
+		if(userAgent.indexOf("Windows NT 6.0") != -1)  operatingSystemName = "Windows Vista";
+		if(userAgent.indexOf("Windows NT 5.1") != -1)  operatingSystemName = "Windows XP";
+		if(userAgent.indexOf("Windows NT 5.0") != -1)  operatingSystemName = "Windows 2000";
+		if(userAgent.indexOf("Mac") != -1)             operatingSystemName = "Mac/iOS";
+		if(userAgent.indexOf("X11") != -1)             operatingSystemName = "UNIX";
+		if(userAgent.indexOf("Linux") != -1)           operatingSystemName = "Linux";
+		
+		return operatingSystemName;
 	},
 	
 	_this.getBrowserName = function(userAgent){
@@ -111,8 +145,18 @@ window.Renderer = new (function(){
 		itemTemplateName : "item"
 	};
 	
+	var bindEvents = function(){
+		settings.$container.on("click", ".content-list-item-counter", function(evt){
+			evt.preventDefault();
+			var itemId = $(this).closest(".content-list-item").prop("id");
+			Helper.focusListItem($("#" + itemId));
+			return false;
+		});
+	};
+	
 	_this.init = function(_settings){
 		settings = Helper.extend(settings, _settings);
+		bindEvents();
 	};
 	
 	_this.hideMessage = function(){
@@ -214,8 +258,21 @@ window.Launch = function(){
 			Data.listenForNewData(data => {
 				Renderer.data(data, true);
 			});
+			
+			if(window.location.hash != ""){
+				Helper.focusListItem($("#" + window.location.hash.substr(1)));
+			}
 		})
 		.catch(error => {
 			$("main").html("Error: " + (error.statusText || error));
 		});
 };
+
+try{
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-79876137-1', 'auto');
+	ga('send', 'pageview');
+}catch(ex){}

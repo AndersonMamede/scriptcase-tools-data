@@ -25,6 +25,7 @@ Data.init({
 			
 			rowData.counter = Data.counter.up();
 			rowData.prettyDate = Helper.getPrettyDate(rowData.date);
+			rowData.operatingSystemName = Helper.getOperatingSystemName(rowData.userAgent);
 			rowData.browserName = Helper.getBrowserName(rowData.userAgent);
 			rowData.installId = rowData.installId || "-";
 			rowData.feedback = rowData.feedback || "-";

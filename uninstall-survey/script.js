@@ -1,6 +1,13 @@
 $(document).ready(function(){
+	var params = {};
+	
+	try{
+		params = JSON.parse(window.location.hash.substr(1));
+	}catch(ex){}
+	
 	var fn = {
 		getInstallId : function(){
+			window.location.hash.substr(1)
 			return window.location.href.split("#")[1] || "";
 		},
 		
@@ -18,7 +25,8 @@ $(document).ready(function(){
 				userAgent : window.navigator.userAgent,
 				language : window.navigator.language,
 				date : {".sv" : "timestamp"},
-				installId : fn.getInstallId(),
+				installId : params.installId,
+				sctVersion : params.sctVersion,
 				why : [],
 				feedback : $.trim($("#feedback").val()),
 				email : $.trim($("#email").val())
@@ -31,7 +39,7 @@ $(document).ready(function(){
 			return data;
 		},
 		
-		submit : function(){
+		submitSurvey : function(){
 			if(!fn.validateForm()){
 				return;
 			}
@@ -47,10 +55,24 @@ $(document).ready(function(){
 				
 				window.location.href = "done.html";
 			});
+		},
+		
+		sendAccessInfo : function(){
+			var data = fn.getData();
+			fetch("https://scriptcase-tools.firebaseio.com/uninstall-survey-access.json", {
+				method : "POST",
+				body : JSON.stringify({
+					userAgent : data.userAgent,
+					language : data.language,
+					date : data.date,
+					installId : data.installId,
+					sctVersion : data.sctVersion
+				})
+			});
 		}
 	};
 	
-	$("#btn-submit").click(fn.submit);
+	$("#btn-submit").click(fn.submitSurvey);
 	
 	$("#question-why-NONE").change(function(){
 		$(".question-why").not(this).prop({
@@ -58,4 +80,6 @@ $(document).ready(function(){
 			disabled : this.checked ? true : false
 		});
 	});
+	
+	fn.sendAccessInfo();
 });
