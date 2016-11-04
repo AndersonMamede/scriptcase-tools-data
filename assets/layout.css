@@ -94,6 +94,14 @@ body.error .status-message{
 	margin: 0 auto 0 auto;
 }
 
+.content-summary p{
+	margin: 8px 0;
+}
+
+.content-summary b{
+	color: #FF1744;
+}
+
 .content-list{
 	margin: 10px auto 30px auto;
 }

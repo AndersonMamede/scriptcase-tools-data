@@ -42,14 +42,14 @@ window.Helper = new (function(){
 	_this.getOperatingSystemName = function(userAgent){
 		var operatingSystemName = "Unknown O.S.";
 		
-		if(userAgent.indexOf("Windows NT 10.0") != -1) operatingSystemName = "Windows 10 / Windows Server 2016";
-		if(userAgent.indexOf("Windows NT 6.3") != -1)  operatingSystemName = "Windows 8.1 / Windows Server 2012 R2";
-		if(userAgent.indexOf("Windows NT 6.2") != -1)  operatingSystemName = "Windows 8";
-		if(userAgent.indexOf("Windows NT 6.1") != -1)  operatingSystemName = "Windows 7";
-		if(userAgent.indexOf("Windows NT 6.0") != -1)  operatingSystemName = "Windows Vista";
-		if(userAgent.indexOf("Windows NT 5.1") != -1)  operatingSystemName = "Windows XP";
-		if(userAgent.indexOf("Windows NT 5.0") != -1)  operatingSystemName = "Windows 2000";
-		if(userAgent.indexOf("Mac") != -1)             operatingSystemName = "Mac/iOS";
+		if(userAgent.indexOf("Windows NT 10.0") != -1) operatingSystemName = "Win10";
+		if(userAgent.indexOf("Windows NT 6.3") != -1)  operatingSystemName = "Win8.1";
+		if(userAgent.indexOf("Windows NT 6.2") != -1)  operatingSystemName = "Win8";
+		if(userAgent.indexOf("Windows NT 6.1") != -1)  operatingSystemName = "Win7";
+		if(userAgent.indexOf("Windows NT 6.0") != -1)  operatingSystemName = "WinVista";
+		if(userAgent.indexOf("Windows NT 5.1") != -1)  operatingSystemName = "WinXP";
+		if(userAgent.indexOf("Windows NT 5.0") != -1)  operatingSystemName = "Win2000";
+		if(userAgent.indexOf("Mac") != -1)             operatingSystemName = "Mac";
 		if(userAgent.indexOf("X11") != -1)             operatingSystemName = "UNIX";
 		if(userAgent.indexOf("Linux") != -1)           operatingSystemName = "Linux";
 		
