@@ -69,10 +69,10 @@ window.Helper = new (function(){
 	_this.getPrettyDate = function(timestamp){
 		var date = new Date(timestamp);
 		return [
-				Helper.strLeftPad(date.getDate(), 2, "0"),
+				date.getFullYear(),
 				Helper.strLeftPad(date.getMonth()+1, 2, "0"),
-				date.getFullYear()
-			].join("/") + " - " + [
+				Helper.strLeftPad(date.getDate(), 2, "0")
+			].join("-") + " - " + [
 				Helper.strLeftPad(date.getHours(), 2, "0"),
 				Helper.strLeftPad(date.getMinutes(), 2, "0"),
 				Helper.strLeftPad(date.getSeconds(), 2, "0")
