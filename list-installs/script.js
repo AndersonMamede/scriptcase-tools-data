@@ -37,6 +37,7 @@ Data.init({
 			var rowData = row.val();
 			var browserName = Helper.getBrowserName(rowData.userAgent);
 			
+			rowData.rowid = row.key();
 			rowData.counter = Data.counter.up();
 			rowData.prettyDate = Helper.getPrettyDate(rowData.date);
 			rowData.operatingSystemName = Helper.getOperatingSystemName(rowData.userAgent);
