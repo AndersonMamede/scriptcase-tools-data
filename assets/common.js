@@ -146,6 +146,13 @@ window.Renderer = new (function(){
 	};
 	
 	var bindEvents = function(){
+		settings.$container.on("contextmenu", ".content-list-item-counter", function(evt){
+			evt.preventDefault();
+			var rowid = $(this).closest(".content-list-item").data("rowid");
+			prompt("Press CTRL+C to copy:", rowid);
+			return false;
+		});
+		
 		settings.$container.on("click", ".content-list-item-counter", function(evt){
 			evt.preventDefault();
 			var itemId = $(this).closest(".content-list-item").prop("id");
