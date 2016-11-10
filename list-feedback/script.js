@@ -13,6 +13,7 @@ Data.init({
 		snapshot.forEach(row => {
 			var rowData = row.val();
 			
+			rowData.rowid = row.key();
 			rowData.counter = Data.counter.up();
 			rowData.prettyDate = Helper.getPrettyDate(rowData.date);
 			rowData.operatingSystemName = Helper.getOperatingSystemName(rowData.userAgent);
